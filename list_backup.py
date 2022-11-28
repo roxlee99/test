@@ -12,8 +12,8 @@ sites = public.M('sites').field('name,id').select()
 
 backups = sql.table('backup').select()
 
-for backup in backups:
-    print(backup)
+#for backup in backups:
+    #print(backup)
             
 for site in sites:
     backups = sql.table('backup').where('pid=?', (site['id'])).field(
