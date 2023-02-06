@@ -259,12 +259,15 @@ class gdrive_main():
         sub_path_name = ""
         if sub_search:
             sub_path_name = sub_search.groups()[0]
+            sub_path_name += '.new'
             sub_path_name += '/'
         # 构建OS存储路径
         object_name = 'bt_backup/{}/{}'.format(data_type,sub_path_name)
-
+        
         if object_name[:1] == "/":
             object_name = object_name[1:]
+        
+        print(object_name)
         return object_name
 
     # 上传文件
