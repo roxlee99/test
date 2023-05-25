@@ -17,7 +17,20 @@ if __name__ == "__main__":
     get = public.dict_obj()
     site_name = sys.argv[1]
     get.id = sql.table('sites').where('name=?', (site_name,)).getField('id')
-    get.path = '1'
+    
+    id = get.id
+    
+    get.path = sql.table('sites').where("id=?", (id,)).getField('path')
+    
+    
+   
     get.webname = site_name
     s = site.DeleteSite(get)
-    print(s)
+    print(site_name," deteled")
+    
+    if os.path.exists(get.path+'/.user.ini'):
+        public.ExecShell("chattr -i "+get.path+"/.user.ini")
+    
+    if os.path.exists(get.path):
+        public.ExecShell("rm -rf "+get.path)
+        print(get.path," deteled")
