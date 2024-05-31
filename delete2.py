@@ -31,10 +31,10 @@ if __name__ == "__main__":
     print(site_name," deteled")
     
     
-    print(path)
+    #print(path)
     if os.path.exists(path+'/.user.ini'):
         public.ExecShell("chattr -i "+path+"/.user.ini")
     
-    if os.path.exists(get.path):
+    if os.path.exists(path):
         public.ExecShell("rm -rf "+path)
-        print(get.path," deteled")
+        print(path," deteled")
