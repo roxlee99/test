@@ -3,7 +3,7 @@
 
 set -euo pipefail
 
-SEARCH_DIR="${1:-/var/www/wwwroot}"    # default if not provided
+SEARCH_DIR="/www/wwwroot"    # default if not provided
 BACKUP_EXT=".bak-$(date +%F_%H%M%S)"
 
 echo "Scanning: $SEARCH_DIR"
